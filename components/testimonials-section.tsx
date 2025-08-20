@@ -85,6 +85,11 @@ export function TestimonialsSection() {
                 type: "spring",
                 stiffness: 100,
               }}
+              whileTap={{
+                scale: 0.98,
+                rotateY: 2,
+                transition: { duration: 0.3 },
+              }}
             >
               <Card className="p-8 bg-card border-border text-center relative overflow-hidden">
                 <motion.div
@@ -155,6 +160,11 @@ export function TestimonialsSection() {
                       alt={testimonials[currentIndex].name}
                       className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
                       whileHover={{ scale: 1.1, borderColor: "hsl(var(--primary))" }}
+                      whileTap={{
+                        scale: 1.15,
+                        borderColor: "hsl(var(--primary))",
+                        boxShadow: "0 0 15px hsl(var(--primary) / 0.4)",
+                      }}
                       transition={{ duration: 0.2 }}
                     />
                     <div className="text-left">
@@ -186,7 +196,12 @@ export function TestimonialsSection() {
               onClick={prevTestimonial}
               className="rounded-full bg-transparent hover:bg-primary/10 hover:border-primary transition-all duration-300"
               whileHover={{ scale: 1.1, x: -2 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{
+                scale: 0.9,
+                x: -3,
+                backgroundColor: "hsl(var(--primary) / 0.2)",
+                borderColor: "hsl(var(--primary))",
+              }}
             >
               <ChevronLeft className="w-4 h-4" />
             </Button>
@@ -196,7 +211,12 @@ export function TestimonialsSection() {
               onClick={nextTestimonial}
               className="rounded-full bg-transparent hover:bg-primary/10 hover:border-primary transition-all duration-300"
               whileHover={{ scale: 1.1, x: 2 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{
+                scale: 0.9,
+                x: 3,
+                backgroundColor: "hsl(var(--primary) / 0.2)",
+                borderColor: "hsl(var(--primary))",
+              }}
             >
               <ChevronRight className="w-4 h-4" />
             </Button>
@@ -216,7 +236,10 @@ export function TestimonialsSection() {
                   index === currentIndex ? "bg-primary w-8" : "bg-muted w-2"
                 }`}
                 whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.8 }}
+                whileTap={{
+                  scale: 0.8,
+                  backgroundColor: "hsl(var(--primary))",
+                }}
                 layout
               />
             ))}
