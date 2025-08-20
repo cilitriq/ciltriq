@@ -8,6 +8,7 @@ import { WhyChooseUsSection } from "@/components/why-choose-us-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <ContactSection />
       <Footer />
+      <FloatingWhatsApp />
     </main>
   )
 }
