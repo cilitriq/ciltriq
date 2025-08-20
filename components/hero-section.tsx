@@ -282,7 +282,7 @@ export function HeroSection() {
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 relative overflow-visible group shadow-lg hover:shadow-xl"
               onClick={() =>
                 window.open(
-                  "https://wa.me/1234567890?text=Hi! I would like to get a free consultation for my project.",
+                  "https://wa.me/9562019132?text=Hi! I would like to get a free consultation for my project.",
                   "_blank",
                 )
               }
