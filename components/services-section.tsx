@@ -72,6 +72,12 @@ export function ServicesSection() {
                 rotateY: 5,
                 transition: { duration: 0.3 },
               }}
+              whileTap={{
+                scale: 0.98,
+                y: -5,
+                rotateY: 3,
+                transition: { duration: 0.2 },
+              }}
             >
               <Card className="group p-8 bg-card border-border hover:shadow-2xl transition-all duration-500 cursor-pointer relative overflow-hidden h-full">
                 <motion.div
@@ -88,6 +94,11 @@ export function ServicesSection() {
                       rotate: [0, -10, 10, -5, 5, 0],
                       scale: 1.2,
                     }}
+                    whileTap={{
+                      rotate: [0, -15, 15, 0],
+                      scale: 1.3,
+                      transition: { duration: 0.4 },
+                    }}
                     transition={{ duration: 0.6 }}
                   >
                     <motion.div
@@ -95,6 +106,11 @@ export function ServicesSection() {
                       whileHover={{
                         boxShadow: "0 0 20px hsl(var(--primary) / 0.3)",
                         scale: 1.1,
+                      }}
+                      whileTap={{
+                        boxShadow: "0 0 25px hsl(var(--primary) / 0.5)",
+                        scale: 1.15,
+                        backgroundColor: "hsl(var(--primary) / 0.3)",
                       }}
                     >
                       <service.icon className="w-8 h-8 text-primary" />

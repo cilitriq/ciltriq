@@ -1,4 +1,7 @@
+"use client"
+
 import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function Footer() {
   return (
@@ -12,82 +15,68 @@ export function Footer() {
               solutions.
             </p>
             <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-background/20 transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-background/20 transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-background/20 transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-background/20 transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
+              {[
+                { icon: Github, href: "#" },
+                { icon: Twitter, href: "#" },
+                { icon: Linkedin, href: "#" },
+                { icon: Mail, href: "#" },
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center hover:bg-background/20 transition-colors"
+                  whileTap={{
+                    scale: 0.9,
+                    backgroundColor: "hsl(var(--background) / 0.3)",
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.3 },
+                  }}
+                >
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
+              ))}
             </div>
           </div>
 
           <div>
             <h4 className="font-geist font-semibold text-lg mb-4">Services</h4>
             <ul className="font-manrope space-y-2 text-background/80">
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  Web Development
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  App Development
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  AI Solutions
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  Cloud Services
-                </a>
-              </li>
+              {["Web Development", "App Development", "AI Solutions", "Cloud Services"].map((service, index) => (
+                <li key={index}>
+                  <motion.a
+                    href="#"
+                    className="hover:text-background transition-colors block"
+                    whileTap={{
+                      scale: 0.98,
+                      x: 3,
+                      color: "hsl(var(--background))",
+                    }}
+                  >
+                    {service}
+                  </motion.a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h4 className="font-geist font-semibold text-lg mb-4">Company</h4>
             <ul className="font-manrope space-y-2 text-background/80">
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-background transition-colors">
-                  Contact
-                </a>
-              </li>
+              {["About Us", "Portfolio", "Careers", "Contact"].map((item, index) => (
+                <li key={index}>
+                  <motion.a
+                    href="#"
+                    className="hover:text-background transition-colors block"
+                    whileTap={{
+                      scale: 0.98,
+                      x: 3,
+                      color: "hsl(var(--background))",
+                    }}
+                  >
+                    {item}
+                  </motion.a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

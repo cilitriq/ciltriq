@@ -95,7 +95,11 @@ export function PortfolioSection() {
                 onClick={() => setActiveCategory(category)}
                 className="px-6 py-2 rounded-full transition-all duration-300 relative overflow-hidden"
                 whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{
+                  scale: 0.95,
+                  y: 1,
+                  boxShadow: "0 2px 8px hsl(var(--primary) / 0.3)",
+                }}
               >
                 {activeCategory === category && (
                   <motion.div
@@ -135,6 +139,12 @@ export function PortfolioSection() {
                   rotateY: 5,
                   transition: { duration: 0.3 },
                 }}
+                whileTap={{
+                  scale: 0.97,
+                  y: -5,
+                  rotateY: 2,
+                  transition: { duration: 0.2 },
+                }}
                 layout
               >
                 <Card className="group overflow-hidden bg-card border-border hover:shadow-2xl transition-all duration-500 cursor-pointer h-full">
@@ -144,6 +154,11 @@ export function PortfolioSection() {
                       alt={project.title}
                       className="w-full h-48 object-cover"
                       whileHover={{ scale: 1.15, rotate: 2 }}
+                      whileTap={{
+                        scale: 1.1,
+                        rotate: 1,
+                        transition: { duration: 0.3 },
+                      }}
                       transition={{ duration: 0.6 }}
                     />
                     <motion.div

@@ -92,7 +92,15 @@ export function ContactSection() {
                     className="w-full resize-none"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3">
+                <Button
+                  type="submit"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3"
+                  whileTap={{
+                    scale: 0.98,
+                    backgroundColor: "hsl(var(--primary) / 0.8)",
+                    boxShadow: "0 4px 12px hsl(var(--primary) / 0.3)",
+                  }}
+                >
                   Send Message
                 </Button>
               </form>
@@ -109,37 +117,40 @@ export function ContactSection() {
             <div>
               <h3 className="font-geist font-semibold text-2xl text-foreground mb-6">Contact Information</h3>
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-manrope font-medium text-foreground">Email</p>
-                    <p className="font-manrope text-muted-foreground">contact@ciltriq.com</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-manrope font-medium text-foreground">Phone</p>
-                    <p className="font-manrope text-muted-foreground">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-manrope font-medium text-foreground">Office</p>
-                    <p className="font-manrope text-muted-foreground">
-                      123 Tech Street, Innovation District
-                      <br />
-                      San Francisco, CA 94105
-                    </p>
-                  </div>
-                </div>
+                {[
+                  { icon: Mail, title: "Email", info: "contact@ciltriq.com" },
+                  { icon: Phone, title: "Phone", info: "+1 (555) 123-4567" },
+                  {
+                    icon: MapPin,
+                    title: "Office",
+                    info: "123 Tech Street, Innovation District\nSan Francisco, CA 94105",
+                  },
+                ].map((contact, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center gap-4 cursor-pointer"
+                    whileTap={{
+                      scale: 0.98,
+                      x: 5,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    <motion.div
+                      className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center"
+                      whileTap={{
+                        scale: 1.1,
+                        backgroundColor: "hsl(var(--primary) / 0.2)",
+                        boxShadow: "0 0 15px hsl(var(--primary) / 0.3)",
+                      }}
+                    >
+                      <contact.icon className="w-6 h-6 text-primary" />
+                    </motion.div>
+                    <div>
+                      <p className="font-manrope font-medium text-foreground">{contact.title}</p>
+                      <p className="font-manrope text-muted-foreground whitespace-pre-line">{contact.info}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
 

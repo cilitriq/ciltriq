@@ -54,12 +54,32 @@ export function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileTap={{
+                scale: 0.95,
+                y: -5,
+                transition: { duration: 0.2 },
+              }}
             >
-              <Card className="group text-center p-8 bg-card border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="mb-6 flex justify-center">
+              <Card className="group text-center p-8 bg-card border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                <motion.div
+                  className="mb-6 flex justify-center"
+                  whileTap={{
+                    scale: 1.2,
+                    rotate: [0, -10, 10, 0],
+                    transition: { duration: 0.4 },
+                  }}
+                >
                   <highlight.icon className="w-16 h-16 text-primary group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <h3 className="font-geist font-semibold text-xl text-card-foreground mb-4">{highlight.title}</h3>
+                </motion.div>
+                <motion.h3
+                  className="font-geist font-semibold text-xl text-card-foreground mb-4"
+                  whileTap={{
+                    scale: 1.05,
+                    color: "hsl(var(--primary))",
+                  }}
+                >
+                  {highlight.title}
+                </motion.h3>
                 <p className="font-manrope text-muted-foreground leading-relaxed">{highlight.description}</p>
               </Card>
             </motion.div>
