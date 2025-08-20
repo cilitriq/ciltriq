@@ -7,50 +7,51 @@ import { Button } from "@/components/ui/button"
 
 const projects = [
   {
-    id: 1,
-    title: "E-Commerce Platform",
-    category: "Web Apps",
-    description: "Modern e-commerce solution with AI-powered recommendations",
-    image: "/modern-ecommerce-platform.png",
-  },
-  {
-    id: 2,
-    title: "Mobile Banking App",
-    category: "Mobile Apps",
-    description: "Secure mobile banking application with biometric authentication",
-    image: "/mobile-banking-app.png",
-  },
-  {
-    id: 3,
-    title: "AI Analytics Dashboard",
-    category: "AI Solutions",
-    description: "Real-time analytics dashboard powered by machine learning",
-    image: "/ai-analytics-dashboard.png",
-  },
-  {
-    id: 4,
-    title: "Cloud Infrastructure",
-    category: "Web Apps",
-    description: "Scalable cloud infrastructure management platform",
-    image: "/cloud-infrastructure-dashboard.png",
-  },
-  {
-    id: 5,
-    title: "IoT Mobile Controller",
-    category: "Mobile Apps",
-    description: "Smart home automation control application",
-    image: "/iot-mobile-app.png",
-  },
-  {
-    id: 6,
-    title: "Predictive AI System",
-    category: "AI Solutions",
-    description: "Advanced predictive analytics for business intelligence",
-    image: "/predictive-ai-interface.png",
-  },
+  id: 1,
+  title: "Kasaragod Sports City",
+  category: "Web",
+  description: "Showcase website for Kasaragod Sports City highlighting its projects, upcoming facilities, and future developments with a modern and engaging design.",
+  image: "/ksc.png",
+},
+{
+  id: 2,
+  title: "Nadan Curry Chatti",
+  category: "Web",
+  description: "Restaurant website for Nadan Curry Chatti featuring traditional Kerala cuisine, an online menu, and reservation system for a seamless dining experience.",
+  image: "/ncc.png",
+},
+
+  // {
+  //   id: 3,
+  //   title: "AI Analytics Dashboard",
+  //   category: "AI Solutions",
+  //   description: "Real-time analytics dashboard powered by machine learning",
+  //   image: "/ai-analytics-dashboard.png",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Cloud Infrastructure",
+  //   category: "Web Apps",
+  //   description: "Scalable cloud infrastructure management platform",
+  //   image: "/cloud-infrastructure-dashboard.png",
+  // },
+  // {
+  //   id: 5,
+  //   title: "IoT Mobile Controller",
+  //   category: "Mobile Apps",
+  //   description: "Smart home automation control application",
+  //   image: "/iot-mobile-app.png",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Predictive AI System",
+  //   category: "AI Solutions",
+  //   description: "Advanced predictive analytics for business intelligence",
+  //   image: "/predictive-ai-interface.png",
+  // },
 ]
 
-const categories = ["All", "Web Apps", "Mobile Apps", "AI Solutions"]
+const categories = ["All","Web"]
 
 export function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState("All")
