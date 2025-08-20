@@ -143,11 +143,11 @@ export function ContactSection() {
               </div>
             </div>
 
-            <Card className="p-6 bg-card border-border">
+            {/* <Card className="p-6 bg-card border-border">
               <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
                 <p className="font-manrope text-muted-foreground">Interactive Map</p>
               </div>
-            </Card>
+            </Card> */}
           </motion.div>
         </div>
       </div>
