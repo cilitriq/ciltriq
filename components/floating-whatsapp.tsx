@@ -21,8 +21,8 @@ export function FloatingWhatsApp() {
     setIsTapped(true)
     setTimeout(() => setIsTapped(false), 300)
 
-    const message = encodeURIComponent("Hi! I'm interested in your services. Can we discuss my project?")
-    window.open(`https://wa.me/1234567890?text=${message}`, "_blank")
+    const message = encodeURIComponent("Hi! I would like to get a free consultation for my project.")
+    window.open(`https://wa.me/7907140006?text=${message}`, "_blank")
   }
 
   return (

@@ -114,13 +114,13 @@ export function ContactSection() {
               <h3 className="font-geist font-semibold text-2xl text-foreground mb-6">Contact Information</h3>
               <div className="space-y-6">
                 {[
-                  { icon: Mail, title: "Email", info: "contact@ciltriq.com" },
-                  { icon: Phone, title: "Phone", info: "+1 (555) 123-4567" },
-                  {
-                    icon: MapPin,
-                    title: "Office",
-                    info: "123 Tech Street, Innovation District\nSan Francisco, CA 94105",
-                  },
+                  { icon: Mail, title: "Email", info: "ciltriq@gmail.com" },
+                  { icon: Phone, title: "Phone", info: "+91 7907140006" },
+                  // {
+                  //   icon: MapPin,
+                  //   title: "Office",
+                  //   info: "123 Tech Street, Innovation District\nSan Francisco, CA 94105",
+                  // },
                 ].map((contact, index) => (
                   <motion.div
                     key={index}

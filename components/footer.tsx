@@ -1,6 +1,6 @@
 "use client"
 
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import { Github, Twitter, Linkedin, Mail , Instagram} from "lucide-react"
 import { motion } from "framer-motion"
 
 export function Footer() {
@@ -16,10 +16,10 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { icon: Github, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Mail, href: "#" },
+                { icon: Github, href: "https://github.com/cilitriq" },
+                { icon: Instagram, href: "https://www.instagram.com/ciltriq_/" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/ciltriq" },
+                { icon: Mail, href: "mailto:ciltriq@gmail.com" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
