@@ -52,29 +52,31 @@ const techLogos = [
 
 export function HeroSection() {
   const [dimensions, setDimensions] = useState({ width: 1200, height: 800 })
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    // Set initial dimensions
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    })
+    setIsMounted(true)
+
+    // Set initial dimensions only after mounting
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+
+    updateDimensions()
 
     // Update dimensions on resize with debouncing
     let timeoutId: NodeJS.Timeout
     const handleResize = () => {
       clearTimeout(timeoutId)
-      timeoutId = setTimeout(() => {
-        setDimensions({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        })
-      }, 150)
+      timeoutId = setTimeout(updateDimensions, 150)
     }
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize)
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener("resize", handleResize)
       clearTimeout(timeoutId)
     }
   }, [])
@@ -91,18 +93,40 @@ export function HeroSection() {
     }
   }
 
+  if (!isMounted) {
+    return (
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background" />
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <h1 className="font-geist font-bold text-6xl md:text-8xl lg:text-9xl text-foreground mb-6 tracking-tight">
+            Ciltriq
+          </h1>
+          <p className="font-manrope text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Innovating Technology, Empowering Growth
+          </p>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/10 to-background" />
+
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
+          backgroundSize: "40px 40px",
+        }}
+      />
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Code Snippets */}
-        {Array.from({ length: 15 }).map((_, i) => (
+        {Array.from({ length: 8 }).map((_, i) => (
           <motion.div
             key={`code-${i}`}
-            className="absolute font-mono text-xs text-foreground/25 select-none pointer-events-none whitespace-nowrap"
+            className="absolute font-mono text-xs text-foreground/15 select-none pointer-events-none whitespace-nowrap backdrop-blur-sm"
             initial={{
               x: Math.random() * dimensions.width,
               y: Math.random() * dimensions.height,
@@ -111,11 +135,11 @@ export function HeroSection() {
             animate={{
               x: Math.random() * dimensions.width,
               y: Math.random() * dimensions.height,
-              opacity: [0, 0.8, 0],
+              opacity: [0, 0.4, 0],
             }}
             transition={{
-              duration: Math.random() * 25 + 20,
-              repeat: Infinity,
+              duration: Math.random() * 30 + 25,
+              repeat: Number.POSITIVE_INFINITY,
               repeatType: "reverse",
               ease: "easeInOut",
             }}
@@ -124,80 +148,76 @@ export function HeroSection() {
           </motion.div>
         ))}
 
-        {/* API Request Animations */}
-        {apiRequests.map((request, i) => (
+        {apiRequests.slice(0, 3).map((request, i) => (
           <motion.div
             key={`api-${i}`}
-            className="absolute font-mono text-xs text-green-400/40 select-none pointer-events-none"
+            className="absolute font-mono text-xs text-emerald-500/20 select-none pointer-events-none"
             initial={{
               x: -200,
-              y: Math.random() * dimensions.height,
+              y: 100 + i * 150,
               opacity: 0,
             }}
             animate={{
               x: dimensions.width + 200,
-              opacity: [0, 1, 1, 0],
+              opacity: [0, 0.6, 0.6, 0],
             }}
             transition={{
-              duration: 8,
-              repeat: Infinity,
+              duration: 12,
+              repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
-              delay: i * 2,
+              delay: i * 4,
             }}
           >
             {request}
           </motion.div>
         ))}
 
-        {/* Database Query Animations */}
-        {dbQueries.map((query, i) => (
+        {dbQueries.slice(0, 2).map((query, i) => (
           <motion.div
             key={`db-${i}`}
-            className="absolute font-mono text-xs text-blue-400/30 select-none pointer-events-none"
+            className="absolute font-mono text-xs text-blue-500/15 select-none pointer-events-none"
             initial={{
               x: dimensions.width + 100,
-              y: Math.random() * dimensions.height,
+              y: 200 + i * 200,
               opacity: 0,
             }}
             animate={{
               x: -300,
-              opacity: [0, 0.8, 0.8, 0],
+              opacity: [0, 0.5, 0.5, 0],
             }}
             transition={{
-              duration: 12,
-              repeat: Infinity,
+              duration: 15,
+              repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
-              delay: i * 3,
+              delay: i * 5,
             }}
           >
             {query}
           </motion.div>
         ))}
 
-        {/* Tech Logo Animations */}
-        {techLogos.map((logo, i) => (
+        {techLogos.slice(0, 6).map((logo, i) => (
           <motion.div
             key={`tech-logo-${i}`}
-            className="absolute font-bold text-sm text-foreground/20 select-none pointer-events-none"
+            className="absolute font-medium text-sm text-foreground/10 select-none pointer-events-none"
             initial={{
               x: Math.random() * dimensions.width,
               y: Math.random() * dimensions.height,
               opacity: 0,
-              scale: 0.8,
+              scale: 0.9,
             }}
             animate={{
               y: [
                 Math.random() * dimensions.height,
-                Math.random() * dimensions.height - 100,
+                Math.random() * dimensions.height - 50,
                 Math.random() * dimensions.height,
               ],
-              opacity: [0, 0.6, 0.6, 0],
-              scale: [0.8, 1.2, 0.8],
-              rotate: [0, 180, 360],
+              opacity: [0, 0.3, 0.3, 0],
+              scale: [0.9, 1, 0.9],
             }}
             transition={{
-              duration: Math.random() * 20 + 15,
-              repeat: Infinity,
+              duration: Math.random() * 25 + 20,
+              repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
           >
@@ -205,15 +225,13 @@ export function HeroSection() {
           </motion.div>
         ))}
 
-        {/* Floating Particles */}
-        {Array.from({ length: 60 }).map((_, i) => (
+        {Array.from({ length: 30 }).map((_, i) => (
           <motion.div
             key={`particle-${i}`}
-            className="absolute rounded-full"
+            className="absolute rounded-full bg-foreground/5"
             style={{
-              width: Math.random() * 4 + 1,
-              height: Math.random() * 4 + 1,
-              backgroundColor: `hsl(var(--foreground) / ${Math.random() * 0.3 + 0.1})`,
+              width: Math.random() * 3 + 1,
+              height: Math.random() * 3 + 1,
             }}
             initial={{
               x: Math.random() * dimensions.width,
@@ -224,44 +242,66 @@ export function HeroSection() {
               x: Math.random() * dimensions.width,
               y: Math.random() * dimensions.height,
               scale: [0, 1, 0],
-              rotate: 360,
             }}
             transition={{
-              duration: Math.random() * 25 + 15,
-              repeat: Infinity,
+              duration: Math.random() * 20 + 15,
+              repeat: Number.POSITIVE_INFINITY,
               repeatType: "reverse",
               ease: "easeInOut",
             }}
           />
         ))}
 
-        {/* Geometric Shapes */}
-        {Array.from({ length: 4 }).map((_, i) => (
+        {Array.from({ length: 3 }).map((_, i) => (
           <motion.div
             key={`shape-${i}`}
-            className="absolute border border-foreground/10"
+            className="absolute border border-foreground/5"
             style={{
-              width: Math.random() * 100 + 50,
-              height: Math.random() * 100 + 50,
-              borderRadius: Math.random() > 0.5 ? "50%" : "0%",
+              width: 60 + i * 20,
+              height: 60 + i * 20,
+              borderRadius: i % 2 === 0 ? "50%" : "8px",
+              left: `${20 + i * 30}%`,
+              top: `${20 + i * 25}%`,
             }}
             initial={{
-              x: Math.random() * dimensions.width,
-              y: Math.random() * dimensions.height,
               rotate: 0,
               opacity: 0,
             }}
             animate={{
-              x: Math.random() * dimensions.width,
-              y: Math.random() * dimensions.height,
               rotate: 360,
+              opacity: [0, 0.15, 0],
+            }}
+            transition={{
+              duration: 40 + i * 10,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          />
+        ))}
+
+        {Array.from({ length: 4 }).map((_, i) => (
+          <motion.div
+            key={`line-${i}`}
+            className="absolute bg-gradient-to-r from-transparent via-foreground/5 to-transparent"
+            style={{
+              width: "200px",
+              height: "1px",
+              left: `${i * 25}%`,
+              top: `${30 + i * 15}%`,
+            }}
+            initial={{
+              scaleX: 0,
+              opacity: 0,
+            }}
+            animate={{
+              scaleX: [0, 1, 0],
               opacity: [0, 0.3, 0],
             }}
             transition={{
-              duration: Math.random() * 30 + 20,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "linear",
+              duration: 8,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+              delay: i * 2,
             }}
           />
         ))}
@@ -330,17 +370,23 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           {/* Primary CTA Button */}
-          <motion.div 
-            whileHover={{ scale: 1.05, y: -2 }} 
-            whileTap={{ scale: 0.95 }} 
+          <motion.div
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
             className="relative"
           >
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 relative overflow-visible group shadow-lg hover:shadow-xl"
+              className="relative overflow-hidden bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
               onClick={handleConsultationClick}
               aria-label="Get free consultation via WhatsApp"
             >
+              {/* Shimmer Glitter Effect */}
+              <span className="absolute inset-0 rounded-lg overflow-hidden pointer-events-none">
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+              </span>
+
+              {/* Actual Button Content */}
               <span className="relative z-10 flex items-center gap-3">
                 <motion.div
                   animate={{
@@ -348,8 +394,8 @@ export function HeroSection() {
                     scale: [1, 1.2, 1],
                   }}
                   transition={{
-                    rotate: { duration: 2, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+                    rotate: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                    scale: { duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
                   }}
                   aria-hidden="true"
                 >
@@ -365,7 +411,7 @@ export function HeroSection() {
                   }}
                   transition={{
                     duration: 1.5,
-                    repeat: Infinity,
+                    repeat: Number.POSITIVE_INFINITY,
                     ease: "easeInOut",
                   }}
                   aria-hidden="true"
@@ -384,7 +430,7 @@ export function HeroSection() {
               }}
               transition={{
                 duration: 2,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
               }}
               aria-hidden="true"
@@ -394,6 +440,7 @@ export function HeroSection() {
               </svg>
             </motion.div>
           </motion.div>
+
 
           {/* Secondary CTA Button */}
           <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>

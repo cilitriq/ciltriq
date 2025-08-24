@@ -2,7 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import { Manrope } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { WhatsAppCTAButton } from "@/components/cta/cta"
 
 const geist = Geist({
   subsets: ["latin"],
@@ -31,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${manrope.variable} antialiased`}>
       <body className="font-sans">{children}</body>
+      <Analytics />
     </html>
   )
 }

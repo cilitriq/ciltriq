@@ -4,30 +4,54 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0); /* Pure white */
-  --foreground: oklch(0 0 0); /* Pure black */
-  --card: oklch(0.97 0 0); /* Light grey for cards */
-  --card-foreground: oklch(0.2 0 0); /* Dark grey for card text */
-  --popover: oklch(1 0 0); /* White for popovers */
-  --popover-foreground: oklch(0 0 0); /* Black for popover text */
-  --primary: oklch(0 0 0); /* Black for primary elements */
-  --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: oklch(0.97 0 0); /* Light grey for secondary */
-  --secondary-foreground: oklch(0.2 0 0); /* Dark grey text on secondary */
-  --muted: oklch(0.92 0 0); /* Soft grey for muted elements */
-  --muted-foreground: oklch(0 0 0); /* Black text on muted */
-  --accent: oklch(0.92 0 0); /* Soft grey accent */
-  --accent-foreground: oklch(0 0 0); /* Black text on accent */
-  --destructive: oklch(0.577 0.245 27.325); /* Red for destructive actions */
-  --destructive-foreground: oklch(1 0 0); /* White text on destructive */
-  --border: oklch(0.94 0 0); /* Light border */
-  --input: oklch(1 0 0); /* White input background */
-  --ring: oklch(0 0 0 / 0.1); /* Subtle black focus ring */
-  --chart-1: oklch(0 0 0); /* Black for charts */
-  --chart-2: oklch(0.2 0 0); /* Dark grey */
-  --chart-3: oklch(0.92 0 0); /* Light grey */
-  --chart-4: oklch(0.97 0 0); /* Very light grey */
-  --chart-5: oklch(1 0 0); /* White */
+  --background: oklch(1 0 0);
+  /* Pure white */
+  --foreground: oklch(0 0 0);
+  /* Pure black */
+  --card: oklch(0.97 0 0);
+  /* Light grey for cards */
+  --card-foreground: oklch(0.2 0 0);
+  /* Dark grey for card text */
+  --popover: oklch(1 0 0);
+  /* White for popovers */
+  --popover-foreground: oklch(0 0 0);
+  /* Black for popover text */
+  --primary: oklch(0 0 0);
+  /* Black for primary elements */
+  --primary-foreground: oklch(1 0 0);
+  /* White text on primary */
+  --secondary: oklch(0.97 0 0);
+  /* Light grey for secondary */
+  --secondary-foreground: oklch(0.2 0 0);
+  /* Dark grey text on secondary */
+  --muted: oklch(0.92 0 0);
+  /* Soft grey for muted elements */
+  --muted-foreground: oklch(0 0 0);
+  /* Black text on muted */
+  --accent: oklch(0.92 0 0);
+  /* Soft grey accent */
+  --accent-foreground: oklch(0 0 0);
+  /* Black text on accent */
+  --destructive: oklch(0.577 0.245 27.325);
+  /* Red for destructive actions */
+  --destructive-foreground: oklch(1 0 0);
+  /* White text on destructive */
+  --border: oklch(0.94 0 0);
+  /* Light border */
+  --input: oklch(1 0 0);
+  /* White input background */
+  --ring: oklch(0 0 0 / 0.1);
+  /* Subtle black focus ring */
+  --chart-1: oklch(0 0 0);
+  /* Black for charts */
+  --chart-2: oklch(0.2 0 0);
+  /* Dark grey */
+  --chart-3: oklch(0.92 0 0);
+  /* Light grey */
+  --chart-4: oklch(0.97 0 0);
+  /* Very light grey */
+  --chart-5: oklch(1 0 0);
+  /* White */
   --radius: 0.5rem;
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0 0 0);
@@ -40,30 +64,52 @@
 }
 
 .dark {
-  --background: oklch(0 0 0); /* Pure black background */
-  --foreground: oklch(1 0 0); /* Pure white text */
-  --card: oklch(0.08 0 0); /* Very dark grey for cards */
-  --card-foreground: oklch(1 0 0); /* White text on cards */
-  --popover: oklch(0.08 0 0); /* Dark popover background */
-  --popover-foreground: oklch(1 0 0); /* White popover text */
-  --primary: oklch(1 0 0); /* White for primary in dark mode */
-  --primary-foreground: oklch(0 0 0); /* Black text on white primary */
-  --secondary: oklch(0.15 0 0); /* Dark grey secondary */
-  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
-  --muted: oklch(0.15 0 0); /* Dark muted background */
-  --muted-foreground: oklch(0.7 0 0); /* Light grey muted text */
-  --accent: oklch(0.15 0 0); /* Dark accent */
-  --accent-foreground: oklch(1 0 0); /* White accent text */
+  --background: oklch(0 0 0);
+  /* Pure black background */
+  --foreground: oklch(1 0 0);
+  /* Pure white text */
+  --card: oklch(0.08 0 0);
+  /* Very dark grey for cards */
+  --card-foreground: oklch(1 0 0);
+  /* White text on cards */
+  --popover: oklch(0.08 0 0);
+  /* Dark popover background */
+  --popover-foreground: oklch(1 0 0);
+  /* White popover text */
+  --primary: oklch(1 0 0);
+  /* White for primary in dark mode */
+  --primary-foreground: oklch(0 0 0);
+  /* Black text on white primary */
+  --secondary: oklch(0.15 0 0);
+  /* Dark grey secondary */
+  --secondary-foreground: oklch(1 0 0);
+  /* White text on secondary */
+  --muted: oklch(0.15 0 0);
+  /* Dark muted background */
+  --muted-foreground: oklch(0.7 0 0);
+  /* Light grey muted text */
+  --accent: oklch(0.15 0 0);
+  /* Dark accent */
+  --accent-foreground: oklch(1 0 0);
+  /* White accent text */
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.15 0 0); /* Dark border */
-  --input: oklch(0.08 0 0); /* Dark input background */
-  --ring: oklch(1 0 0 / 0.1); /* Subtle white focus ring */
-  --chart-1: oklch(1 0 0); /* White for charts in dark mode */
-  --chart-2: oklch(0.8 0 0); /* Light grey */
-  --chart-3: oklch(0.15 0 0); /* Dark grey */
-  --chart-4: oklch(0.08 0 0); /* Very dark grey */
-  --chart-5: oklch(0 0 0); /* Black */
+  --border: oklch(0.15 0 0);
+  /* Dark border */
+  --input: oklch(0.08 0 0);
+  /* Dark input background */
+  --ring: oklch(1 0 0 / 0.1);
+  /* Subtle white focus ring */
+  --chart-1: oklch(1 0 0);
+  /* White for charts in dark mode */
+  --chart-2: oklch(0.8 0 0);
+  /* Light grey */
+  --chart-3: oklch(0.15 0 0);
+  /* Dark grey */
+  --chart-4: oklch(0.08 0 0);
+  /* Very dark grey */
+  --chart-5: oklch(0 0 0);
+  /* Black */
   --sidebar: oklch(0.08 0 0);
   --sidebar-foreground: oklch(1 0 0);
   --sidebar-primary: oklch(1 0 0);
@@ -117,7 +163,23 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
 }

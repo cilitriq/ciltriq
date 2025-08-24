@@ -95,11 +95,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3"
-                  whileTap={{
-                    scale: 0.98,
-                    backgroundColor: "hsl(var(--primary) / 0.8)",
-                    boxShadow: "0 4px 12px hsl(var(--primary) / 0.3)",
-                  }}
+
                 >
                   Send Message
                 </Button>

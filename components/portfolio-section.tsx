@@ -7,19 +7,19 @@ import { Button } from "@/components/ui/button"
 
 const projects = [
   {
-  id: 1,
-  title: "Kasaragod Sports City",
-  category: "Web",
-  description: "Showcase website for Kasaragod Sports City highlighting its projects, upcoming facilities, and future developments with a modern and engaging design.",
-  image: "/ksc.png",
-},
-{
-  id: 2,
-  title: "Nadan Curry Chatti",
-  category: "Web",
-  description: "Restaurant website for Nadan Curry Chatti featuring traditional Kerala cuisine, an online menu, and reservation system for a seamless dining experience.",
-  image: "/ncc.png",
-},
+    id: 1,
+    title: "Kasaragod Sports City",
+    category: "Web",
+    description: "Showcase website for Kasaragod Sports City highlighting its projects, upcoming facilities, and future developments with a modern and engaging design.",
+    image: "/ksc.png",
+  },
+  {
+    id: 2,
+    title: "Nadan Curry Chatti",
+    category: "Web",
+    description: "Restaurant website for Nadan Curry Chatti featuring traditional Kerala cuisine, an online menu, and reservation system for a seamless dining experience.",
+    image: "/ncc.png",
+  },
 
   // {
   //   id: 3,
@@ -51,7 +51,7 @@ const projects = [
   // },
 ]
 
-const categories = ["All","Web"]
+const categories = ["All", "Web"]
 
 export function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState("All")
@@ -94,12 +94,7 @@ export function PortfolioSection() {
                 variant={activeCategory === category ? "default" : "outline"}
                 onClick={() => setActiveCategory(category)}
                 className="px-6 py-2 rounded-full transition-all duration-300 relative overflow-hidden"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{
-                  scale: 0.95,
-                  y: 1,
-                  boxShadow: "0 2px 8px hsl(var(--primary) / 0.3)",
-                }}
+
               >
                 {activeCategory === category && (
                   <motion.div

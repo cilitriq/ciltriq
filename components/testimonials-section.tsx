@@ -195,13 +195,6 @@ export function TestimonialsSection() {
               size="icon"
               onClick={prevTestimonial}
               className="rounded-full bg-transparent hover:bg-primary/10 hover:border-primary transition-all duration-300"
-              whileHover={{ scale: 1.1, x: -2 }}
-              whileTap={{
-                scale: 0.9,
-                x: -3,
-                backgroundColor: "hsl(var(--primary) / 0.2)",
-                borderColor: "hsl(var(--primary))",
-              }}
             >
               <ChevronLeft className="w-4 h-4" />
             </Button>
@@ -210,13 +203,6 @@ export function TestimonialsSection() {
               size="icon"
               onClick={nextTestimonial}
               className="rounded-full bg-transparent hover:bg-primary/10 hover:border-primary transition-all duration-300"
-              whileHover={{ scale: 1.1, x: 2 }}
-              whileTap={{
-                scale: 0.9,
-                x: 3,
-                backgroundColor: "hsl(var(--primary) / 0.2)",
-                borderColor: "hsl(var(--primary))",
-              }}
             >
               <ChevronRight className="w-4 h-4" />
             </Button>
@@ -232,9 +218,8 @@ export function TestimonialsSection() {
               <motion.button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? "bg-primary w-8" : "bg-muted w-2"
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-primary w-8" : "bg-muted w-2"
+                  }`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{
                   scale: 0.8,
