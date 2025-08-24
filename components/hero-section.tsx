@@ -6,29 +6,31 @@ import { ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
 
 const codeSnippets = [
-  "kubectl apply -f deployment.yaml",
   "docker build -t ciltriq/app:latest .",
+  "kubectl apply -f deployment.yaml",
   "terraform apply -auto-approve",
-  "const microservice = new GraphQL()",
-  "await redis.pipeline().exec()",
-  "SELECT * FROM analytics WHERE roi > 300%",
   "git push origin feature/ai-integration",
   "npm run build && npm run deploy",
-  "const blockchain = await Web3.connect()",
+  "await redis.pipeline().exec()",
+  "const microservice = new GraphQL()",
   "machine_learning.train(big_data)",
-  "api.post('/webhook', { success: true })",
+  "const blockchain = await Web3.connect()",
   "import { NextJS, React, TypeScript }",
-  "export const scalability = Infinity",
-  "console.log('Revenue: +847% YoY')",
   "AWS.Lambda.invoke({ performance: 'optimal' })",
+  "export const scalability = Infinity",
+  "SELECT * FROM analytics WHERE roi > 300%",
+  "console.log('Revenue Growth: +300%')",
+  "console.log('Time-to-Market ↓ 40%')",
 ]
 
+
 const apiRequests = [
-  "GET /api/v2/analytics → 200 OK (47ms)",
   "POST /api/users/create → 201 Created (23ms)",
+  "GET /api/v2/analytics → 200 OK (47ms)",
   "PUT /api/projects/update → 200 OK (31ms)",
   "DELETE /api/cache/clear → 204 No Content (12ms)",
   "GET /api/metrics/performance → 200 OK (19ms)",
+  "POST /api/payments/checkout → 200 OK (88ms)",
   "POST /api/ai/process → 202 Accepted (156ms)",
 ]
 
@@ -37,18 +39,20 @@ const dbQueries = [
   "📊 Analytics: Processing 2.3M records/sec",
   "⚡ Cache: Redis hit ratio 99.7%",
   "🚀 Performance: Response time < 50ms",
+  "💰 ROI Dashboard: Calculating live profits",
+  "📦 Inventory: Auto-updated in real-time",
 ]
 
-const techLogos = [
-  "⚛️ React",
-  "🔺 Vercel",
-  "🐳 Docker",
-  "☁️ AWS",
-  "🔥 Firebase",
-  "📱 Next.js",
-  "🎯 TypeScript",
-  "⚡ Node.js",
-]
+// const techLogos = [
+//   "⚛️ React",
+//   "🔺 Vercel",
+//   "🐳 Docker",
+//   "☁️ AWS",
+//   "🔥 Firebase",
+//   "📱 Next.js",
+//   "🎯 TypeScript",
+//   "⚡ Node.js",
+// ]
 
 export function HeroSection() {
   const [dimensions, setDimensions] = useState({ width: 1200, height: 800 })
@@ -102,7 +106,7 @@ export function HeroSection() {
             Ciltriq
           </h1>
           <p className="font-manrope text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Innovating Technology, Empowering Growth
+            Engineering Innovation. Accelerating Growth.
           </p>
         </div>
       </section>
@@ -196,7 +200,7 @@ export function HeroSection() {
           </motion.div>
         ))}
 
-        {techLogos.slice(0, 6).map((logo, i) => (
+        {/* {techLogos.slice(0, 6).map((logo, i) => (
           <motion.div
             key={`tech-logo-${i}`}
             className="absolute font-medium text-sm text-foreground/10 select-none pointer-events-none"
@@ -223,7 +227,7 @@ export function HeroSection() {
           >
             {logo}
           </motion.div>
-        ))}
+        ))} */}
 
         {Array.from({ length: 30 }).map((_, i) => (
           <motion.div
@@ -345,7 +349,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="font-manrope text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
         >
-          {"Innovating Technology, Empowering Growth".split(" ").map((word, index) => (
+          {"Engineering Innovation. Accelerating Growth.".split(" ").map((word, index) => (
             <motion.span
               key={`word-${index}`}
               initial={{ opacity: 0, y: 20 }}
