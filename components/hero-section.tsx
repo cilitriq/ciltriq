@@ -86,7 +86,7 @@ export function HeroSection() {
   }, [])
 
   const handleConsultationClick = () => {
-    const message = encodeURIComponent("Hi! I would like to get a free consultation for my project.")
+    const message = encodeURIComponent("Hii! I would like to get a free consultation for my project.")
     window.open(`https://wa.me/7907140006?text=${message}`, "_blank", "noopener,noreferrer")
   }
 
